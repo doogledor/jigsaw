@@ -7,7 +7,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].js',
-    publicPath: '',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '.'
+      : '.',
   },
   module: {
     rules: [
@@ -25,7 +27,19 @@ module.exports = {
             localIdentName: '[name]__[local]--[hash:base64:5]'
           }
         }]
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+              publicPath: '../lib/images',
+            },
+          },
+        ],
+      },
     ]
   }
 }
