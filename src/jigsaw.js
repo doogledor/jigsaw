@@ -23,20 +23,26 @@ function createCanvas(width, height) {
 
 function createElement(tagName, className) {
   const element = document.createElement(tagName)
-  className && (element.className = styles[className])
+  className && (element.setAttribute('class', className))
   return element
 }
 
 function setClass(element, className) {
-  element.className = styles[className]
+  element.setAttribute('class', className)
 }
 
 function addClass(element, className) {
-  element.classList.add(styles[className])
+  // element.classList.add(styles[className])
+  const preClass = element.getAttribute('class');
+  element.setAttribute('class', `${className} ${preClass}`)
 }
 
 function removeClass(element, className) {
-  element.classList.remove(styles[className])
+  let preClass = element.getAttribute('class');
+  const reg = new RegExp(className, 'g')
+  preClass = preClass.replace(reg, '');
+  preClass = preClass.replace(/\s+/g, ' ');
+  element.setAttribute('class', preClass)
 }
 
 
@@ -92,22 +98,22 @@ class Jigsaw {
     const { width, height } = this
     const canvas = createCanvas(width, height) // 画布
     const block = createCanvas(width, height) // 滑块
-    setClass(block, 'block')
-    const sliderContainer = createElement('div', 'sliderContainer')
+    setClass(block, 'jigsaw__block')
+    const sliderContainer = createElement('div', 'jigsaw__sliderContainer')
     sliderContainer.style.width = width + 'px'
     sliderContainer.style.pointerEvents = 'none'
-    const refreshIcon = createElement('div', 'refreshIcon')
-    const sliderMask = createElement('div', 'sliderMask')
-    const slider = createElement('div', 'slider')
-    const sliderIcon = createElement('span', 'sliderIcon')
-    const text = createElement('span', 'sliderText')
+    const refreshIcon = createElement('div', 'jigsaw__refreshIcon')
+    const sliderMask = createElement('div', 'jigsaw__sliderMask')
+    const slider = createElement('div', 'jigsaw__slider')
+    const sliderIcon = createElement('span', 'jigsaw__sliderIcon')
+    const text = createElement('span', 'jigsaw__sliderText')
     text.innerHTML = '向右滑动填充拼图'
 
     // 增加loading
-    const loadingContainer = createElement('div', 'loadingContainer')
+    const loadingContainer = createElement('div', 'jigsaw__loadingContainer')
     loadingContainer.style.width = width + 'px'
     loadingContainer.style.height = height + 'px'
-    const loadingIcon = createElement('div', 'loadingIcon')
+    const loadingIcon = createElement('div', 'jigsaw__loadingIcon')
     const loadingText = createElement('span')
     loadingText.innerHTML = '加载中...'
     loadingContainer.appendChild(loadingIcon)
@@ -216,7 +222,7 @@ class Jigsaw {
       const blockLeft = (width - 40 - 20) / (width - 40) * moveX
       this.block.style.left = blockLeft + 'px'
 
-      addClass(this.sliderContainer, 'sliderContainer_active')
+      addClass(this.sliderContainer, 'jigsaw__sliderContainer_active')
       this.sliderMask.style.width = moveX + 'px'
       trail.push(moveY)
     }
@@ -226,20 +232,20 @@ class Jigsaw {
       isMouseDown = false
       const eventX = e.clientX || e.changedTouches[0].clientX
       if (eventX === originX) return false
-      removeClass(this.sliderContainer, 'sliderContainer_active')
+      removeClass(this.sliderContainer, 'jigsaw__sliderContainer_active')
       this.trail = trail
       const { spliced, verified } = this.verify()
       if (spliced) {
         if (verified) {
-          addClass(this.sliderContainer, 'sliderContainer_success')
+          addClass(this.sliderContainer, 'jigsaw__sliderContainer_success')
           typeof this.onSuccess === 'function' && this.onSuccess()
         } else {
-          addClass(this.sliderContainer, 'sliderContainer_fail')
+          addClass(this.sliderContainer, 'jigsaw__sliderContainer_fail')
           this.text.innerHTML = '请再试一次'
           this.reset()
         }
       } else {
-        addClass(this.sliderContainer, 'sliderContainer_fail')
+        addClass(this.sliderContainer, 'jigsaw__sliderContainer_fail')
         typeof this.onFail === 'function' && this.onFail()
         setTimeout(this.reset.bind(this), 1000)
       }
@@ -269,7 +275,7 @@ class Jigsaw {
   reset() {
     const { width, height } = this
     // 重置样式
-    setClass(this.sliderContainer, 'sliderContainer')
+    setClass(this.sliderContainer, 'jigsaw__sliderContainer')
     this.slider.style.left = 0 + 'px'
     this.block.width = width
     this.block.style.left = 0 + 'px'

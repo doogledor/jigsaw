@@ -1,4 +1,4 @@
-.block {
+.jigsaw__block {
   position: absolute;
   left: 0;
   top: 0;
@@ -6,11 +6,11 @@
   cursor: grab;
 }
 
-.block:active {
+.jigsaw__block:active {
   cursor: grabbing;
 }
 
-.sliderContainer {
+.jigsaw__sliderContainer {
   position: relative;
   text-align: center;
   width: 310px;
@@ -22,57 +22,59 @@
   border: 1px solid #e4e7eb;
 }
 
-.sliderContainer_active .slider {
+.jigsaw__sliderContainer_active .jigsaw__slider {
   height: 38px;
   top: -1px;
   border: 1px solid #1991FA;
 }
 
-.sliderContainer_active .sliderMask {
+.jigsaw__sliderContainer_active .jigsaw__sliderMask {
   height: 38px;
   border-width: 1px;
 }
 
-.sliderContainer_success .slider {
+.jigsaw__sliderContainer_success .jigsaw__slider {
   height: 38px;
   top: -1px;
   border: 1px solid #52CCBA;
   background-color: #52CCBA !important;
 }
 
-.sliderContainer_success .sliderMask {
+.jigsaw__sliderContainer_success .jigsaw__sliderMask {
   height: 38px;
   border: 1px solid #52CCBA;
   background-color: #D2F4EF;
 }
 
-.sliderContainer_success .sliderIcon {
+.jigsaw__sliderContainer_success .jigsaw__sliderIcon {
   background-position: 0 -26px!important;
 }
 
-.sliderContainer_fail .slider {
+.jigsaw__sliderContainer_fail .jigsaw__slider {
   height: 38px;
   top: -1px;
   border: 1px solid #f57a7a;
   background-color: #f57a7a !important;
 }
 
-.sliderContainer_fail .sliderMask {
+.jigsaw__sliderContainer_fail .jigsaw__sliderMask {
   height: 38px;
   border: 1px solid #f57a7a;
   background-color: #fce1e1;
 }
 
-.sliderContainer_fail .sliderIcon {
+.jigsaw__sliderContainer_fail .jigsaw__sliderIcon {
   top: 14px;
   background-position: 0 -82px !important;
 }
 
-.sliderContainer_active .sliderText, .sliderContainer_success .sliderText, .sliderContainer_fail .sliderText {
+.jigsaw__sliderContainer_active .jigsaw__sliderText,
+ .jigsaw__sliderContainer_success .jigsaw__sliderText,
+  .jigsaw__sliderContainer_fail .jigsaw__sliderText {
   display: none;
 }
 
-.sliderMask {
+.jigsaw__sliderMask {
   position: absolute;
   left: 0;
   top: 0;
@@ -81,7 +83,7 @@
   background: #D1E9FE;
 }
 
-.slider {
+.jigsaw__slider {
   position: absolute;
   top: 0;
   left: 0;
@@ -94,44 +96,44 @@
   cursor: grab;
 }
 
-.slider:active {
+.jigsaw__slider:active {
   cursor: grabbing;
 }
 
-.slider:hover {
+.jigsaw__slider:hover {
   background: #1991FA;
 }
 
-.sliderIcon {
+.jigsaw__sliderIcon {
   position: absolute;
   top: 15px;
   left: 13px;
   width: 14px;
   height: 12px;
-  background: url(https://cstaticdun.126.net//2.13.6/images/icon_light.4353d81.png) 0 -13px;
+  background: url('./assets/icon_light.png') 0 -13px;
   background-size: 32px 544px;
 }
 
-.slider:hover .sliderIcon {
+.jigsaw__slider:hover .jigsaw__sliderIcon {
   background-position: 0 0;
 }
 
-.refreshIcon {
+.jigsaw__refreshIcon {
   position: absolute;
   right: 5px;
   top: 5px;
   width: 30px;
   height: 30px;
   cursor: pointer;
-  background: url(https://cstaticdun.126.net//2.13.6/images/icon_light.4353d81.png) 0 -233px;
+  background: url('./assets/icon_light.png') 0 -233px;
   background-size: 32px 544px;
 }
 
-.refreshIcon:hover {
+.jigsaw__refreshIcon:hover {
   background-position: 0 -266px;
 }
 
-.loadingContainer {
+.jigsaw__loadingContainer {
   position: absolute;
   left: 0;
   top: 0;
@@ -147,11 +149,11 @@
   background: #EDF0F2;
 }
 
-.loadingIcon {
+.jigsaw__loadingIcon {
   width: 32px;
   height: 32px;
   margin-bottom: 10px;
-  background: url(https://cstaticdun.126.net//2.13.6/images/icon_light.4353d81.png) 0 -332px;
+  background: url('./assets/icon_light.png') 0 -332px;
   background-size: 32px 544px;
   animation: loading-icon-rotate 0.8s linear infinite;
 }

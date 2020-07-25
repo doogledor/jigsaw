@@ -4,10 +4,8 @@ canvas滑动验证码
 ## [在线演示地址](https://kongkong99.github.io/jigsaw/)
 
 ### 用法：
-1. 
-```
-直接使用src/jigsaw.js或lib/index.js
-```
+1. 直接使用src/jigsaw.js或lib/index.js
+
 
 2.
 ```

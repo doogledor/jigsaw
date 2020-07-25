@@ -26,6 +26,7 @@
   },
   "description": "canvas滑动验证码",
   "main": "lib/index.js",
+  "module": "src/jigsaw.js",
   "directories": {
     "doc": "docs",
     "lib": "lib"
