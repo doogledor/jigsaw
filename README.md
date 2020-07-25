@@ -7,12 +7,11 @@ canvas滑动验证码
 1. 
 ```
 直接使用src/jigsaw.js或lib/index.js
-
 ```
 
 2.
 ```
-npm i jigsaw-kong -S
+npm i @zwh19981028/jigsaw-js -S
 
 jigsaw.init({
   el: document.getElementById('container'),
@@ -27,6 +26,5 @@ jigsaw.init({
 
 ### Tips：
 
-1. 不设置imgArray或值为空数组时，从 https://picsum.photos/ 随机获取，然后用canvas裁剪生成滑块.
+- 不设置imgArray或值为空数组时，使用默认的5张图片，然后用canvas裁剪生成滑块.
 
-2. 支持移动端和IE浏览器(IE10+).

@@ -4,10 +4,7 @@ module.exports = {
   entry: {
     'jigsaw': './src/jigsaw.js'
   },
-  output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js',
-  },
+
   module: {
     rules: [
       {
@@ -32,7 +29,6 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'images',
-              publicPath: '../lib/images',
             },
           },
         ],

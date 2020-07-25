@@ -1,7 +1,6 @@
 import styles from './jigsaw.css'
-import tableImg from './assets/table.jpg';
+import loadImgs from './assets';
 
-const imgs = [] // 预加载照片
 const w = 310 // canvas宽度
 const h = 155 // canvas高度
 const l = 42 // 滑块边长
@@ -9,7 +8,6 @@ const r = 9 // 滑块半径
 const PI = Math.PI
 const L = l + r * 2 + 3 // 滑块实际边长
 
-imgs.push(tableImg);
 
 function getRandomNumberByRange(start, end) {
   return Math.round(Math.random() * (end - start) + start)
@@ -21,24 +19,6 @@ function createCanvas(width, height) {
   canvas.height = height
   return canvas
 }
-
-function preloadImgs() {
-  for (let i = 0; i < 5; i++) {
-    const xhr = new XMLHttpRequest()
-    xhr.onloadend = function (e) {
-      const file = new FileReader()
-      file.readAsDataURL(e.target.response)
-      file.onloadend = function (e) {
-        imgs.push(e.target.result)
-      }
-    }
-    xhr.open('GET', `https://picsum.photos/id/${getRandomNumberByRange(0, 1084)}/${w}/${h}`)
-    xhr.responseType = 'blob'
-    xhr.send()
-  }
-}
-
-
 
 
 function createElement(tagName, className) {
@@ -87,7 +67,7 @@ function square(x) {
 }
 
 class Jigsaw {
-  constructor({ el, width = w, height = h, imgArray = [], onSuccess, onFail, onRefresh }) {
+  constructor({ el, width = w, height = h, imgs = [], onSuccess, onFail, onRefresh }) {
     Object.assign(el.style, {
       position: 'relative',
       width: width + 'px',
@@ -96,7 +76,7 @@ class Jigsaw {
     this.width = width
     this.height = height
     this.el = el
-    this.imgArray = imgArray
+    this.imgs = imgs && imgs.length > 0 ? imgs : loadImgs
     this.onSuccess = onSuccess
     this.onFail = onFail
     this.onRefresh = onRefresh
@@ -182,17 +162,9 @@ class Jigsaw {
     }
 
     img.setSrc = () => {
-      if (this.imgArray && this.imgArray.length > 0) {
-        img.src = this.imgArray[imgIdx]
-        imgIdx += 1
-        imgIdx = imgIdx >= this.imgArray.length ? 0 : imgIdx
-      } else {
-        img.src = imgs[0]
-        imgs.shift()
-        if (imgs.length < 3) {
-          preloadImgs()
-        }
-      }
+      img.src = this.imgs[imgIdx]
+      imgIdx += 1
+      imgIdx = imgIdx >= this.imgs.length ? 0 : imgIdx
     }
     img.setSrc()
     return img

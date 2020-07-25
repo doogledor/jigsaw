@@ -1,9 +1,10 @@
 {
-  "name": "jigsaw-js",
+  "name": "@zwh19981028/jigsaw-js",
   "version": "1.0.0",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",
     "build": "node build",
+    "build:docs": "webpack --config  config/webpack.docs.js",
     "release": "sh publish.sh"
   },
   "devDependencies": {
