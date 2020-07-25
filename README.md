@@ -11,6 +11,8 @@ canvas滑动验证码
 ```
 npm i @zwh19981028/jigsaw-js -S
 
+import jigsaw from '@zwh19981028/jigsaw-js'
+
 jigsaw.init({
   el: document.getElementById('container'),
   imgArray: [], // 可选，默认从https://picsum.photos/ 随机获取
