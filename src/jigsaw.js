@@ -313,8 +313,12 @@ class Jigsaw {
   }
 }
 
-window.jigsaw = {
+const jigsaw = {
   init: function (opts) {
     return new Jigsaw(opts).init()
   }
 }
+
+window.jigsaw = jigsaw
+
+export default jigsaw;

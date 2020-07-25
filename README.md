@@ -6,7 +6,7 @@ canvas滑动验证码
 ### 用法：
 1. 
 ```
-直接使用src/jigsaw.js或lib/jigsaw.min.js
+直接使用src/jigsaw.js或lib/index.js
 
 ```
 

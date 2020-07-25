@@ -2,14 +2,11 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    'jigsaw': './src/jigsaw'
+    'jigsaw': './src/jigsaw.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? '.'
-      : '.',
   },
   module: {
     rules: [

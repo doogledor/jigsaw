@@ -7,7 +7,7 @@ const baseConfig = require('./webpack.base')
 module.exports = merge(baseConfig, {
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: '[name].min.js',
+    filename: 'index.js',
     libraryTarget: 'umd', // 采用通用模块定义
     library: 'toolFunc', // 库名称
     libraryExport: 'default', // 兼容 ES6(ES2015) 的模块系统、CommonJS 和 AMD 模块规范

@@ -24,7 +24,7 @@
     "webpack-merge": "^4.1.2"
   },
   "description": "canvas滑动验证码",
-  "main": "lib/jigsaw.min.js",
+  "main": "lib/index.js",
   "directories": {
     "doc": "docs",
     "lib": "lib"
