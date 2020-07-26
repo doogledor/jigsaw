@@ -23,23 +23,22 @@ function createCanvas(width, height) {
 
 function createElement(tagName, className) {
   const element = document.createElement(tagName)
-  className && (element.setAttribute('class', className))
+  className && (element.setAttribute('class', styles[className]))
   return element
 }
 
 function setClass(element, className) {
-  element.setAttribute('class', className)
+  element.setAttribute('class', styles[className])
 }
 
 function addClass(element, className) {
-  // element.classList.add(styles[className])
   const preClass = element.getAttribute('class');
-  element.setAttribute('class', `${className} ${preClass}`)
+  element.setAttribute('class', `${styles[className]} ${preClass}`)
 }
 
 function removeClass(element, className) {
   let preClass = element.getAttribute('class');
-  const reg = new RegExp(className, 'g')
+  const reg = new RegExp(styles[className], 'g')
   preClass = preClass.replace(reg, '');
   preClass = preClass.replace(/\s+/g, ' ');
   element.setAttribute('class', preClass)
@@ -204,11 +203,12 @@ class Jigsaw {
     }
 
     let originX, originY, trail = [], isMouseDown = false
-
+    let addClassFlag = false;
     const handleDragStart = function (e) {
       originX = e.clientX || e.touches[0].clientX
       originY = e.clientY || e.touches[0].clientY
       isMouseDown = true
+      addClassFlag = true
     }
     const width = this.width
     const handleDragMove = (e) => {
@@ -221,10 +221,12 @@ class Jigsaw {
       this.slider.style.left = moveX + 'px'
       const blockLeft = (width - 40 - 20) / (width - 40) * moveX
       this.block.style.left = blockLeft + 'px'
-
-      addClass(this.sliderContainer, 'jigsaw__sliderContainer_active')
       this.sliderMask.style.width = moveX + 'px'
       trail.push(moveY)
+      if (addClassFlag) {
+        addClass(this.sliderContainer, 'jigsaw__sliderContainer_active')
+        addClassFlag = false
+      }
     }
 
     const handleDragEnd = (e) => {
