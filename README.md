@@ -23,8 +23,3 @@ jigsaw.init({
   onRefresh: function () { ... }
 })
 ```
-
-### Tips：
-
-- 不设置imgArray或值为空数组时，使用默认的5张图片，然后用canvas裁剪生成滑块.
-
