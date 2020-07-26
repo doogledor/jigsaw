@@ -15,7 +15,7 @@ import jigsaw from '@zwh19981028/jigsaw-js'
 
 jigsaw.init({
   el: document.getElementById('container'),
-  imgArray: [], // 可选，默认从https://picsum.photos/ 随机获取
+  imgs: [], // 可选，默认为一张内置图片
   width: 310, // 可选, 默认310
   height: 155, // 可选, 默认155
   onSuccess: function () { ... },

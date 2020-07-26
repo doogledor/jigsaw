@@ -8,7 +8,6 @@ const r = 9 // 滑块半径
 const PI = Math.PI
 const L = l + r * 2 + 3 // 滑块实际边长
 
-
 function getRandomNumberByRange(start, end) {
   return Math.round(Math.random() * (end - start) + start)
 }
@@ -118,16 +117,24 @@ class Jigsaw {
     loadingContainer.appendChild(loadingIcon)
     loadingContainer.appendChild(loadingText)
 
-    const el = this.el
-    el.appendChild(loadingContainer)
-    el.appendChild(canvas)
-    el.appendChild(refreshIcon)
-    el.appendChild(block)
+
+
     slider.appendChild(sliderIcon)
     sliderMask.appendChild(slider)
     sliderContainer.appendChild(sliderMask)
     sliderContainer.appendChild(text)
-    el.appendChild(sliderContainer)
+
+    const jigsawNode = createElement('div', 'jigsaw__wrapper'); // 最外层包裹元素
+
+    // 父元素包括所有元素
+    jigsawNode.appendChild(loadingContainer);
+    jigsawNode.appendChild(canvas);
+    jigsawNode.appendChild(refreshIcon);
+    jigsawNode.appendChild(block);
+    jigsawNode.appendChild(sliderContainer);
+
+    this.el.appendChild(jigsawNode)
+
 
     Object.assign(this, {
       canvas,

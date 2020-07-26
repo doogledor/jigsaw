@@ -3,6 +3,7 @@ const path = require('path')
 module.exports = {
   entry: {
     'jigsaw': './src/jigsaw.js'
+    // 'jigsaw': './lib/index.js'
   },
 
   module: {
@@ -26,9 +27,9 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              outputPath: 'images',
+              limit: 204800,
             },
           },
         ],
