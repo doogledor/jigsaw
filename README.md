@@ -9,9 +9,9 @@ canvas滑动验证码
 
 2.
 ```
-npm i @zwh19981028/jigsaw-js -S
+npm i jigsaw-captcha-js -S
 
-import jigsaw from '@zwh19981028/jigsaw-js'
+import jigsaw from 'jigsaw-captcha-js'
 
 jigsaw.init({
   el: document.getElementById('container'),

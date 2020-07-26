@@ -1,6 +1,6 @@
 {
-  "name": "jigsaw-javascript",
-  "version": "1.0.5",
+  "name": "jigsaw-captcha-js",
+  "version": "1.0.0",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",
     "build": "node build",
