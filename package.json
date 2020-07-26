@@ -1,6 +1,6 @@
 {
   "name": "jigsaw-javascript",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",
     "build": "node build",
