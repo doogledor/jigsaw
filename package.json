@@ -1,5 +1,5 @@
 {
-  "name": "@zwh19981028/jigsaw-js",
+  "name": "jigsaw-javascript",
   "version": "1.0.2",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",
