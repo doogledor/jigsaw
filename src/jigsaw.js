@@ -105,7 +105,7 @@ class Jigsaw {
     const slider = createElement('div', 'jigsaw__slider')
     const sliderIcon = createElement('span', 'jigsaw__sliderIcon')
     const text = createElement('span', 'jigsaw__sliderText')
-    text.innerHTML = '向右滑动填充拼图'
+    text.innerHTML = 'Slide the piece into place.'
 
     // 增加loading
     const loadingContainer = createElement('div', 'jigsaw__loadingContainer')
