@@ -113,7 +113,7 @@ class Jigsaw {
     loadingContainer.style.height = height + 'px'
     const loadingIcon = createElement('div', 'jigsaw__loadingIcon')
     const loadingText = createElement('span')
-    loadingText.innerHTML = '加载中...'
+    loadingText.innerHTML = 'loading...'
     loadingContainer.appendChild(loadingIcon)
     loadingContainer.appendChild(loadingText)
 
@@ -250,7 +250,7 @@ class Jigsaw {
           typeof this.onSuccess === 'function' && this.onSuccess()
         } else {
           addClass(this.sliderContainer, 'jigsaw__sliderContainer_fail')
-          this.text.innerHTML = '请再试一次'
+          this.text.innerHTML = 'Not a match!'
           this.reset()
         }
       } else {
